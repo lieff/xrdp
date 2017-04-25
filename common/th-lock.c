@@ -56,6 +56,8 @@
  * [including the GNU Public Licence.]
  */
 
+#define PTHREADS
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -84,8 +86,6 @@
 #include <openssl/x509.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-
-#define PTHREADS
 
 void CRYPTO_thread_setup(void);
 void CRYPTO_thread_cleanup(void);
