@@ -40,6 +40,9 @@
 
 #define SSL_WANT_READ_WRITE_TIMEOUT 100
 
+void CRYPTO_thread_setup();
+void CRYPTO_thread_cleanup();
+
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
 static inline HMAC_CTX *
 HMAC_CTX_new(void)
@@ -72,6 +75,7 @@ ssl_init(void)
 {
     SSL_load_error_strings();
     SSL_library_init();
+    CRYPTO_thread_setup();
     return 0;
 }
 
@@ -79,6 +83,7 @@ ssl_init(void)
 int
 ssl_finish(void)
 {
+    CRYPTO_thread_cleanup();
     return 0;
 }
 

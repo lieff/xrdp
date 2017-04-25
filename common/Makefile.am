@@ -50,6 +50,7 @@ libcommon_la_SOURCES = \
   rail.h \
   ssl_calls.c \
   ssl_calls.h \
+  th-lock.c \
   thread_calls.c \
   thread_calls.h \
   trans.c \
